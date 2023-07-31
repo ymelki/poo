@@ -17,7 +17,7 @@ if ($_SERVER['PATH_INFO']=="/home"){
 }
 
 
-if ($_SERVER['PATH_INFO']=="/home_bis"){
+elseif ($_SERVER['PATH_INFO']=="/home_bis"){
     include __DIR__.'/../src/Controller/HomeController.php';
 }
 
@@ -29,7 +29,7 @@ elseif ($_SERVER['PATH_INFO']=="/books"){
 
 elseif ($_SERVER['PATH_INFO']=="/one_book"){
     include __DIR__.'/../src/Controller/BookController.php';
-    getOneBooks();
+    getOneBook();
 }
 
 elseif ($_SERVER['PATH_INFO']=="/remove_book"){
