@@ -54,3 +54,20 @@ function getOneBookEntity($id){
 
     return $livre;
 }
+function removeBookEntity($id){
+    
+    $pdo = new \PDO(DSN, USER, PASS);
+
+    $query="DELETE FROM livre WHERE id=:monidprotege";
+
+    // on va preparer la requete
+    $statement = $pdo->prepare($query);
+    $statement->bindValue(':monidprotege', $id, \PDO::PARAM_INT);
+
+    // On utilise statement qui a une méthode (sa propre fonction) permettant
+    // de récupérer les données. On utilise le parametre PDO::FETCH_ASSOC
+    // qui nous permet d'avoir un format de donnée sous forme de tableau
+    // associatif
+    $statement->execute();
+    $unlivre = $statement->fetch(PDO::FETCH_ASSOC);
+}

@@ -25,3 +25,13 @@ function getOneBook(){
     include __DIR__.'/../../templates/one_book.php';
 
 }
+function removeBook(){
+    include __DIR__.'/../Entity/BookEntity.php';
+    // 1. connect to database and remove book for an ID
+    $id=$_GET['id'];
+    removeBookEntity($id);
+
+
+    // 2. Display all books
+    header('Location: http://localhost:8080/books');
+}

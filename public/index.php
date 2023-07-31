@@ -34,6 +34,7 @@ elseif ($_SERVER['PATH_INFO']=="/one_book"){
 
 elseif ($_SERVER['PATH_INFO']=="/remove_book"){
     include __DIR__.'/../src/Controller/BookController.php';
+    removeBook();
 }
 
 elseif ($_SERVER['PATH_INFO']=="/insert_book"){
