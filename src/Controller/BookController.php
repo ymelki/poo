@@ -6,13 +6,13 @@ function getBooks(){
     // 1. get data from database . <=Model
     include __DIR__.'/../Entity/BookEntity.php';
     $books=getBooksEntity();
-    var_dump($books);
+    //var_dump($books);
     // 2. Display template
-    echo "all books ! ";
+    include __DIR__.'/../../templates/books.php';
 }
 
 
-// display all books
+// display one books
 function getOneBook(){
     include __DIR__.'/../Entity/BookEntity.php';
 
