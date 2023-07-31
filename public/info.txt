@@ -1,0 +1,24 @@
+Create
+routeur
+controlleur
+vue
+
+READ
+
+Afficher les livres
+routeur : Si la page == books => appelle BookController()
+controlleur : Description de la fonction 
+BookController => appeller la fonction BookEntity 
+qui stock les livres dans la variable Bookentity
+Entity : decrit fonction BookEntity => qui renvoie books
+vue : J'affiche les books dans un foreach
+
+Update
+routeur
+controlleur
+vue
+
+Delete
+routeur
+controlleur
+vue
