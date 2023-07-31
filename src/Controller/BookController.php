@@ -12,11 +12,16 @@ function getBooks(){
 }
 
 
-// display one books
+// display one book
 function getOneBook(){
     include __DIR__.'/../Entity/BookEntity.php';
 
-    getOneBookEntity();
-
+    // get id from book from URL
+    $id=$_GET['id'];
+    //from database
+    $one_book=getOneBookEntity($id);
+    var_dump($one_book);
     echo "One book ! ";
+    include __DIR__.'/../../templates/one_book.php';
+
 }

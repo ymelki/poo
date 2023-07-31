@@ -1,7 +1,5 @@
 <?php
 
-// return all books (Array)
-function getBooksEntity(){
     define('DSN', 'mysql:host=localhost;dbname=bibli');
 
     // on doit definir le nom d'utilisateur.
@@ -11,6 +9,9 @@ function getBooksEntity(){
     // on doit definir un mot de passe
     // on le stock dans la variable constant PASS
     define('PASS', '');
+// return all books (Array)
+function getBooksEntity(){
+    
 
 
     // creer un objet permettant une connexion à la B.D. 
@@ -32,6 +33,24 @@ function getBooksEntity(){
  }
 
 
-function getOneBookEntity(){
-    echo "test";
+function getOneBookEntity($id){
+ 
+    // creer un objet permettant une connexion à la B.D. 
+    // 
+    $pdo = new \PDO(DSN, USER, PASS);
+    $query="SELECT * FROM livre WHERE id=:monidprotege";
+
+    // on va preparer la requete
+    $statement = $pdo->prepare($query);
+    $statement->bindValue(':monidprotege', $id, \PDO::PARAM_INT);
+    
+    // On utilise statement qui a une méthode (sa propre fonction) permettant
+    // de récupérer les données. On utilise le parametre PDO::FETCH_ASSOC
+    // qui nous permet d'avoir un format de donnée sous forme de tableau
+    // associatif
+    $statement->execute();
+    $livre = $statement->fetch(PDO::FETCH_ASSOC);
+  
+
+    return $livre;
 }
