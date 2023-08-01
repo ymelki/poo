@@ -71,3 +71,20 @@ function removeBookEntity($id){
     $statement->execute();
     $unlivre = $statement->fetch(PDO::FETCH_ASSOC);
 }
+
+function insert_book_entity($titre){
+    $pdo = new \PDO(DSN, USER, PASS);
+
+    $query="INSERT INTO livre (titre) VALUES (:titre)";
+
+    // on va preparer la requete
+    $statement = $pdo->prepare($query);
+    $statement->bindValue(':titre', $titre);
+    
+    // On utilise statement qui a une méthode (sa propre fonction) permettant
+    // de récupérer les données. On utilise le parametre PDO::FETCH_ASSOC
+    // qui nous permet d'avoir un format de donnée sous forme de tableau
+    // associatif
+    $statement->execute();
+    
+}

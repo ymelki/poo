@@ -22,3 +22,11 @@ Delete
 routeur
 controlleur
 vue
+
+Recherche à faire à part search($criteria)
+
+create(Book $book)
+read($id)
+update($id,$book)
+delete($id)
+class book qui protege les infos

@@ -37,10 +37,16 @@ elseif ($_SERVER['PATH_INFO']=="/remove_book"){
     removeBook();
 }
 
-elseif ($_SERVER['PATH_INFO']=="/insert_book"){
+elseif ($_SERVER['PATH_INFO']=="/insert_form_book"){
     include __DIR__.'/../src/Controller/BookController.php';
+    // call function display form
+    display_form();
 }
 
+elseif ($_SERVER['PATH_INFO']=="/insert_book"){
+    include __DIR__.'/../src/Controller/BookController.php';
+    insert_book();
+}
 
 else {
     echo "Erreur 404";
